@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="./assets/rhxicon.ico" rel="icon" type="image/png">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Quicksand:wght@600&family=Montserrat:wght@600&family=Rethink+Sans&display=swap">
+    <title>Jotas i Amiguinhos</title>
+    <meta content="#2b2d31" name="theme-color">
+    <meta content="JotaS" property="og:description">
+</head>
+
+<body>
+    <ul class="black-overlay">
+        <li style="--clr:#d5c4a1">
+            <h2><a data-text=" click" onclick="removeOverlay()"> click </a></h2>
+        </li>
+    </ul>
+    <div class="background"></div>
+    <div class="profile-container"></div>
+    <button id="muteButton"
+        style="position: absolute; top: 10px; left: 10px; background: none; border: none; padding: 0;">
+        <img id="muteIcon" src="./assets/mutado.png" alt="Muted" style="width: 20px; height: 20px;">
+        <img id="unmuteIcon" src="./assets/desmutado.png" alt="Unmuted"
+            style="width: 20px; height: 20px; display: none;">
+    </button>
+
+    <audio id="audio" loop preload="auto">
+        <source src="./lovelybastards.mp3" type="audio/mpeg">
+    </audio>
+    <script src="scripts/jquery-3.6.4.min.js"></script>
+    <script src="scripts/tilt.js"></script>
+    <script src="scripts/script.js"></script>
+</body>
+<script>
+    var rev = "fwd";
+  function titlebar(val){
+      var msg  = "OS PIKAS DAS GALAXIAS";
+      var res = " ";
+      var speed = 130;
+      var pos = val;
+      msg = ""+msg+"";
+      var le = msg.length;
+      if(rev == "fwd"){
+          if(pos < le){
+              pos = pos+1;
+              scroll = msg.substr(0,pos);
+              document.title = scroll;
+              timer = window.setTimeout("titlebar("+pos+")",speed);
+          }
+          else {
+              rev = "bwd";
+              timer = window.setTimeout("titlebar("+pos+")",speed);
+          }
+      }
+      else {
+          if(pos > 0) {
+              pos = pos-1;
+              var ale = le-pos;
+              scrol = msg.substr(ale,le);
+              document.title = scrol;
+              timer = window.setTimeout("titlebar("+pos+")",speed);
+          }
+          else {
+              rev = "fwd";
+              timer = window.setTimeout("titlebar("+pos+")",speed);
+          }
+      }
+  }
+  titlebar(0);
+</script>
+</html>
